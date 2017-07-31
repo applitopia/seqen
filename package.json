@@ -1,6 +1,6 @@
 {
   "name": "seqen",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "High performance sequence engine in Javascript that optimizes execution of sequences in Immutable.js",
   "main": "dist/index.js",
   "scripts": {
