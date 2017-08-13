@@ -12,19 +12,13 @@ import { Seq } from 'immutable-sorted';
 
 export default class Seqen<K, V, RK, RV> {
 
-  collection: Collection<K, V>;
   recipe: SeqenRecipe<K, V, RK, RV>;
 
-  constructor(collection: Collection<K, V>, recipe: SeqenRecipe<K, V, RK, RV>) {
-    this.collection = collection;
+  constructor(recipe: SeqenRecipe<K, V, RK, RV>) {
     this.recipe = recipe;
   }
 
-  source(): Collection<K, V> {
-    return this.collection;
-  }
-
-  result(): Seq<RK, RV> {
-    return this.recipe(this.collection.toKeyedSeq());
+  process(collection: Collection<K, V>, props?: SeqenProps): Seq<RK, RV> {
+    return this.recipe(collection.toKeyedSeq(), props);
   }
 }

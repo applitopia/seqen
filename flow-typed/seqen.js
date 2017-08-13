@@ -18,12 +18,12 @@ declare type SeqenOperation =
   'SORT' |
   'REDUCE';
 
-declare type SeqenRecipe<K, V, RK, RV> = (Seq<K, V>) => Seq<RK, RV>;
+declare type SeqenProps = {[string]: mixed};
+declare type SeqenRecipe<K, V, RK, RV> = (seq: Seq<K, V>, props?: SeqenProps) => Seq<RK, RV>;
 
 declare class Seqen<K, V, RK, RV> {
 
-  static (collection: Collection, recipe: SeqenRecipe<K, V, RK, RV>): Seqen<K, V, RK, RV>;
+  static (recipe: SeqenRecipe<K, V, RK, RV>): Seqen<K, V, RK, RV>;
 
-  source(): Collection<K, V>;
-  result(): Seq<RK, RV>;
+  process(collection: Collection<K, V>, props?: SeqenProps): Seq<RK, RV>;
 }

@@ -30,9 +30,9 @@ test("simple seqen", function() {
     map.set(5, "John");
   });
 
-  const seqen: Seqen<number, string, number, string> = new Seqen(map, recipe);
+  const seqen: Seqen<number, string, number, string> = new Seqen(recipe);
 
-  const result1 = seqen.result().toIndexedSeq().toJS();
+  const result1 = seqen.process(map).toIndexedSeq().toJS();
 
   expect(result1).toEqual(["alex", "john", "peter"]);
 
