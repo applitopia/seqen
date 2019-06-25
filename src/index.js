@@ -8,7 +8,7 @@
  *  @flow
  */
 
-import Seqen from './Seqen';
+import Seqen from './SeqenMain';
 
 export {
   Seqen
